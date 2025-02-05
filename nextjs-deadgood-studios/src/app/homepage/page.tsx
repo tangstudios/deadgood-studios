@@ -31,7 +31,7 @@ export default async function HomePage() {
 
   return (
     <div>
-      <h1 className="text-9xl font-bold font-serif pb-3">
+      <h1 className="text-[20vmin] font-bold font-serif pb-3">
         <AnimateText text="Projects" />
       </h1>
       <HomepageFeatureProjects projects={projectsWithImageUrls} />
