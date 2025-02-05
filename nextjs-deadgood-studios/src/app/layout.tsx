@@ -28,7 +28,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased p-1`}
       >
-        <div className="sticky top-0 flex justify-end flex-row ">
+        <div className="sticky top-0 flex justify-end flex-row">
           <RealTimeClock />
         </div>
         {children}

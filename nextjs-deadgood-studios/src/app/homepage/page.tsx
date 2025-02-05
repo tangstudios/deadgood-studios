@@ -31,7 +31,7 @@ export default async function HomePage() {
   return (
     <div>
       <h1 className="text-8xl font-bold">Projects</h1>
-      <HomepageFeatureProjects projects={projectsWithImageUrls} />;
+      <HomepageFeatureProjects projects={projectsWithImageUrls} />
     </div>
   );
 }
