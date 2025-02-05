@@ -1,3 +1,4 @@
+import RealTimeClock from "@/components/clock/RealTimeClock";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
@@ -25,15 +26,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased p-1`}
       >
-        {/* <Image
-          src="/logo.jpg"
-          alt="logo"
-          width={100}
-          height={100}
-          className="sticky top-0"
-        /> */}
+        <div className="sticky top-0 flex justify-end flex-row ">
+          <RealTimeClock />
+        </div>
         {children}
       </body>
     </html>
