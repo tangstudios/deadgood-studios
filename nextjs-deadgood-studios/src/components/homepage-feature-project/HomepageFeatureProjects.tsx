@@ -9,23 +9,35 @@ interface HomepageFeatureProjectsProps {
   projects: (SanityDocument & { imageUrl: string })[];
 }
 
+const fadeInAnimationVariants = {
+  initial: { opacity: 0, y: 35 },
+  animate: (index: number) => ({
+    opacity: 1,
+    y: 0,
+    transition: { delay: 0.04 * index, duration: 0.5 },
+  }),
+};
+
+const fadeInAnimationTitle = {
+  initial: { opacity: 0, y: 20 },
+  animate: (index: number) => ({
+    opacity: 1,
+    y: 0,
+    transition: { delay: 0.03 * index, duration: 0.3 },
+  }),
+};
+
+const drawAnimationVariants = {
+  initial: { scaleX: 0, originX: 0 },
+  animate: (index: number) => ({
+    scaleX: 1,
+    transition: { delay: 0.04 * index, duration: 0.5, ease: "easeInOut" },
+  }),
+};
+
 const HomepageFeatureProjects: React.FC<HomepageFeatureProjectsProps> = ({
   projects,
 }) => {
-  const fadeInAnimationVariants = {
-    initial: { opacity: 0, y: 35 },
-    animate: (index: number) => ({
-      opacity: 1,
-      y: 0,
-      transition: { delay: 0.04 * index, duration: 0.5 },
-    }),
-  };
-
-  const drawAnimationVariants = {
-    initial: { scaleX: 0, originX: 0 },
-    animate: { scaleX: 1, transition: { duration: 0.2, east: "eastInOut" } },
-  };
-
   if (!projects) return null;
 
   return (
@@ -59,18 +71,26 @@ const HomepageFeatureProjects: React.FC<HomepageFeatureProjectsProps> = ({
             </Link>
           </motion.div>
           <div className="flex py-1 justify-between items-center">
-            <Link href={`/${project.slug.current}`}>
-              <h2 className="text-xl font-semibold hover:text-gray-300">
-                {project.title}
-              </h2>
-            </Link>
+            <motion.div
+              variants={fadeInAnimationTitle}
+              initial="initial"
+              whileInView="animate"
+              viewport={{ once: true }}
+              custom={index}
+            >
+              <Link href={`/${project.slug.current}`}>
+                <h2 className="text-xl font-semibold hover:text-gray-300">
+                  {project.title}
+                </h2>
+              </Link>
+            </motion.div>
             <motion.div
               className="flex-grow mx-1 border-t border-black"
               variants={drawAnimationVariants}
               initial="initial"
-              animate="animate"
               whileInView="animate"
               viewport={{ once: true }}
+              custom={index}
             />
             {project.tags.map((tag: Tags, index: number) => (
               <motion.div

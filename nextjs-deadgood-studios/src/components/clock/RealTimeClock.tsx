@@ -23,7 +23,7 @@ const RealTimeClock = () => {
   return (
     <div className="font-mono flex gap-5">
       <p>Hong Kong SAR</p>
-      <div>
+      <div className="lg:block hidden">
         {time.toLocaleDateString("en-US", {
           timeZone: "Asia/Hong_Kong",
           weekday: "long",
