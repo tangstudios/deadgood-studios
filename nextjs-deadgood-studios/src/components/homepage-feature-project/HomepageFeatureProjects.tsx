@@ -56,7 +56,7 @@ const HomepageFeatureProjects: React.FC<HomepageFeatureProjectsProps> = ({
           custom={index}
         >
           <motion.div
-            whileHover={{ scale: 1.03 }}
+            whileHover={{ scale: 1.03, rotate: 1 }}
             animate={{ transition: { duration: 0.5 } }}
           >
             <Link href={`/${project.slug.current}`}>
