@@ -1,3 +1,4 @@
+import AnimateText from "@/components/animate-text/AnimateText";
 import HomepageFeatureProjects from "@/components/homepage-feature-project/HomepageFeatureProjects";
 import { client } from "@/sanity/client";
 import imageUrlBuilder from "@sanity/image-url";
@@ -30,7 +31,9 @@ export default async function HomePage() {
 
   return (
     <div>
-      <h1 className="text-8xl font-bold">Projects</h1>
+      <h1 className="text-[20vmin] font-bold font-serif pb-3">
+        <AnimateText text="Projects" />
+      </h1>
       <HomepageFeatureProjects projects={projectsWithImageUrls} />
     </div>
   );
