@@ -10,7 +10,7 @@ export default function Footer() {
         height: `${footerHeight}px`,
         clipPath: "polygon(0% 0, 100% 0%, 100% 100%, 0 100%)",
       }}
-      className="bg-[#f2f2f2] font-serif"
+      className="bg-[#f9f9f9] font-serif"
     >
       <div
         style={{ height: `calc(100vh + ${footerHeight}px)`, top: "-100vh" }}
@@ -34,7 +34,13 @@ export default function Footer() {
               <AnimateText text="hi@deadgood.studio" />
             </a>
           </div>
-          <Image src="/logo.jpg" alt="logo" height={600} width={600} />
+          <Image
+            src="/logo.jpg"
+            alt="logo"
+            fill
+            style={{ objectFit: "cover" }}
+            className="-z-10"
+          />
         </div>
       </div>
     </div>
