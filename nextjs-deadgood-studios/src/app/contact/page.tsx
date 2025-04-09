@@ -1,3 +1,4 @@
+import ContactLink from "@/components/Contact/ContactLink";
 import Image from "next/image";
 
 export default function Contact() {
@@ -30,28 +31,3 @@ export default function Contact() {
     </div>
   );
 }
-
-interface ContactLinkProps {
-  title: string;
-  href: string;
-  newTab?: boolean;
-}
-
-export const ContactLink = ({
-  title,
-  href,
-  newTab = false,
-}: ContactLinkProps) => {
-  return (
-    <h2>
-      <a
-        href={href}
-        target={newTab ? "_blank" : "_self"}
-        rel={newTab ? "noopener noreferrer" : undefined}
-        className="hover:opacity-50 transition-colors duration-300 uppercase"
-      >
-        {title}
-      </a>
-    </h2>
-  );
-};
