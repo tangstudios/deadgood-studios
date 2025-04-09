@@ -3,7 +3,11 @@ import { menuSlide } from "../animation";
 import CustomLink from "../Link/Link";
 import styles from "./navbar.module.scss";
 
-export default function Navbar() {
+interface NavbarProps {
+  onClick: () => void;
+}
+
+const NavBar: React.FC<NavbarProps> = ({ onClick }) => {
   const navItems = [
     { title: "Work", href: "/work" },
     { title: "About", href: "/about" },
@@ -21,10 +25,18 @@ export default function Navbar() {
       <div className={styles.body}>
         <div className={styles.nav}>
           {navItems.map((item, index) => {
-            return <CustomLink key={index} data={{ ...item, index }} />;
+            return (
+              <CustomLink
+                key={index}
+                data={{ ...item, index }}
+                onClick={onClick}
+              />
+            );
           })}
         </div>
       </div>
     </motion.div>
   );
-}
+};
+
+export default NavBar;

@@ -8,9 +8,10 @@ interface CustomLinkProps {
     href: string;
     index?: number;
   };
+  onClick: () => void;
 }
 
-const CustomLink: React.FC<CustomLinkProps> = ({ data }) => {
+const CustomLink: React.FC<CustomLinkProps> = ({ data, onClick }) => {
   return (
     <motion.div
       custom={data.index}
@@ -19,8 +20,10 @@ const CustomLink: React.FC<CustomLinkProps> = ({ data }) => {
       exit="exit"
       initial="initial"
     >
-      <Link href={data.href}>
-        <h1 className="hover:text-[#bfbfbf] outline-none">{data.title}</h1>
+      <Link href={data.href} onClick={onClick}>
+        <h1 className="hover:text-[#bfbfbf] outline-none uppercase">
+          {data.title}
+        </h1>
       </Link>
     </motion.div>
   );

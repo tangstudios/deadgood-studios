@@ -1,4 +1,4 @@
-import HomepageFeatureProjects from "@/components/homepage-feature-project/HomepageFeatureProjects";
+import Work from "@/components/Work/WorkCards";
 import { client } from "@/sanity/client";
 import imageUrlBuilder from "@sanity/image-url";
 import { type SanityDocument } from "next-sanity";
@@ -16,7 +16,7 @@ const PROJECTS_QUERY = `*[
 
 const options = { next: { revalidate: 30 } };
 
-export default async function HomePage() {
+export default async function WorkPage() {
   const projects = await client.fetch<SanityDocument[]>(
     PROJECTS_QUERY,
     {},
@@ -29,8 +29,9 @@ export default async function HomePage() {
   }));
 
   return (
-    <div>
-      <HomepageFeatureProjects projects={projectsWithImageUrls} />
+    <div className="p-8 pt-32">
+      <h1>WORK</h1>
+      <Work projects={projectsWithImageUrls} />
     </div>
   );
 }

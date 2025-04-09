@@ -3,7 +3,6 @@ import imageUrlBuilder from "@sanity/image-url";
 import type { SanityImageSource } from "@sanity/image-url/lib/types/types";
 import { PortableText, type SanityDocument } from "next-sanity";
 import Image from "next/image";
-import Link from "next/link";
 
 const POST_QUERY = `*[_type == "projects" && slug.current == $slug][0]`;
 
@@ -15,7 +14,7 @@ const urlFor = (source: SanityImageSource) =>
 
 const options = { next: { revalidate: 30 } };
 
-export default async function PostPage({
+export default async function WorkDetails({
   params,
 }: {
   params: Promise<{ slug: string }>;
@@ -30,27 +29,24 @@ export default async function PostPage({
     : null;
 
   return (
-    <main className="container min-h-screen max-w-3xl flex flex-col gap-4">
-      <Link
-        href="/"
-        className="text-2xl font-bold sticky top-0 hover:cursor-pointer hover:text-gray-400"
-      >
-        ← Back to posts
-      </Link>
-      {postImageUrl && (
-        <Image
-          src={postImageUrl}
-          alt={post.title}
-          className="aspect-video"
-          width="1000"
-          height="1000"
-        />
-      )}
+    <div className="">
+      <div className="relative w-full h-[80vh]">
+        {postImageUrl && (
+          <Image
+            src={postImageUrl}
+            alt={post.title}
+            fill
+            style={{ objectFit: "cover" }}
+            className="z-0"
+          />
+        )}
+      </div>
+
       <h1 className="text-4xl font-bold mb-8">{post.title}</h1>
-      <div className="prose">
+      <div>
         <p>Published: {new Date(post.publishedAt).toLocaleDateString()}</p>
         {Array.isArray(post.body) && <PortableText value={post.body} />}
       </div>
-    </main>
+    </div>
   );
 }

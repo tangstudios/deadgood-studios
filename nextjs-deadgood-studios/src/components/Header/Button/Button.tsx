@@ -14,7 +14,9 @@ export default function Button() {
           className={`${styles.burger} ${isActive ? styles.burgerActive : ""}`}
         ></div>
       </div>
-      <AnimatePresence mode="wait">{isActive && <Navbar />}</AnimatePresence>
+      <AnimatePresence mode="wait">
+        {isActive && <Navbar onClick={() => setIsActive(!isActive)} />}
+      </AnimatePresence>
     </div>
   );
 }
