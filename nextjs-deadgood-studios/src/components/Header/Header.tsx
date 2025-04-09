@@ -3,7 +3,7 @@ import Button from "./Button/Button";
 
 export default function Header() {
   return (
-    <div className="flex items-center justify-between px-4 py-4 w-full relative">
+    <div className="flex items-center justify-between px-4 py-4 w-full absolute">
       <div className="flex-1 flex justify-start z-40">
         <Button />
       </div>

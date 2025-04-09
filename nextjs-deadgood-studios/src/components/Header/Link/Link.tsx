@@ -20,9 +20,7 @@ const CustomLink: React.FC<CustomLinkProps> = ({ data }) => {
       initial="initial"
     >
       <Link href={data.href}>
-        <h1 className="hover:text-[#bfbfbf] focus:outline-none">
-          {data.title}
-        </h1>
+        <h1 className="hover:text-[#bfbfbf] outline-none">{data.title}</h1>
       </Link>
     </motion.div>
   );
