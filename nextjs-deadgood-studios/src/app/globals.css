@@ -3,19 +3,46 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #000000;
+  --foreground: #ffffff;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --foregounrd: #0a0a0a;
-    --background: #ffffff;
+    --foregounrd: #ffffff;
+    --background: #000000;
   }
+}
+
+@font-face {
+  font-family: "Nyght Serif";
+  src: url("../../public/fonts/NyghtSerif-Bold.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Hind Bold";
+  src: url("../../public/fonts/Hind-Bold.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Hind Regular";
+  src: url("../../public/fonts/Hind-Regular.ttf") format("truetype");
 }
 
 body {
   color: var(--foreground);
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
+  overscroll-behavior-y: none;
+}
+
+h1 {
+  font-family: "Nyght Serif", serif;
+}
+
+h2 {
+  font-family: "Hind Bold", sans-serif;
+}
+
+p {
+  font-family: "Hind Regular", sans-serif;
 }

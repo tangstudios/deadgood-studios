@@ -21,7 +21,7 @@ export default function Footer() {
             height: `${footerHeight}px`,
             top: `calc(100vh - ${footerHeight}px)`,
           }}
-          className="sticky justify-between flex flex-row items-center "
+          className="sticky justify-between flex flex-row items-center"
         >
           <div className="flex flex-col  text-[10vmin]">
             <AnimateText text="Hey! Get in touch?" rotateOnHover />
