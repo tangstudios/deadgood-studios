@@ -28,7 +28,7 @@ export default function Index() {
       <div className="fixed top-1/2 right-12 -translate-y-1/2 z-10 flex flex-col gap-8">
         {[0, 1, 2].map((i) => {
           const isActive = currentPage === i;
-          const isOnLightSection = currentPage === 2;
+          const isOnLightSection = currentPage === 1;
 
           return (
             <div
@@ -51,17 +51,17 @@ export default function Index() {
       </div>
       <div
         ref={sectionRef1}
-        className="h-[100vh] justify-center items-center flex"
-      >
-        <h1 className="text-7xl">A meaningful quote goes here</h1>
-      </div>
-      <div
-        ref={sectionRef2}
         className="h-[100vh] justify-center items-center flex bg-[#ededed] p-10"
       >
         <h1 className="text-7xl text-[#595959]">
           Deadgood Studio mission statement
         </h1>
+      </div>
+      <div
+        ref={sectionRef2}
+        className="h-[100vh] justify-center items-center flex"
+      >
+        <h1 className="text-7xl">A meaningful quote goes here</h1>
       </div>
     </div>
   );
