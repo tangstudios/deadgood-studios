@@ -21,9 +21,7 @@ const CustomLink: React.FC<CustomLinkProps> = ({ data, onClick }) => {
       initial="initial"
     >
       <Link href={data.href} onClick={onClick}>
-        <h1 className="hover:text-[#bfbfbf] outline-none uppercase">
-          {data.title}
-        </h1>
+        <h2 className="hover:text-[#bfbfbf] outline-none">{data.title}</h2>
       </Link>
     </motion.div>
   );

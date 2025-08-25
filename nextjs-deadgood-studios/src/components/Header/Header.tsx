@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import Button from "./Button/Button";
+import NavBar from "./Navbar/Navbar";
 
 export default function Header() {
   const router = useRouter();
@@ -10,7 +10,7 @@ export default function Header() {
   return (
     <div className="flex items-center justify-between w-full absolute p-2">
       <div className="flex-1 flex justify-start z-40">
-        <Button />
+        <NavBar />
       </div>
       <div
         className="absolute left-1/2 transform -translate-x-1/2 cursor-pointer"

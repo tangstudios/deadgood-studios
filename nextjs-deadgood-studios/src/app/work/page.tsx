@@ -30,7 +30,6 @@ export default async function WorkPage() {
 
   return (
     <div className="p-8 pt-32">
-      <h1>WORK</h1>
       <Work projects={projectsWithImageUrls} />
     </div>
   );

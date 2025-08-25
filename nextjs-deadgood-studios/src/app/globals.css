@@ -20,6 +20,11 @@
 }
 
 @font-face {
+  font-family: "Nyght Serif Regular";
+  src: url("../../public/fonts/NyghtSerif-Regular.ttf") format("truetype");
+}
+
+@font-face {
   font-family: "Hind Bold";
   src: url("../../public/fonts/Hind-Bold.ttf") format("truetype");
 }
@@ -36,13 +41,13 @@ body {
 }
 
 h1 {
-  font-family: "Nyght Serif", serif;
+  font-family: "Nyght Serif regular", serif;
   font-size: 48px;
 }
 
 h2 {
   font-family: "Hind Bold", sans-serif;
-  font-size: 24px;
+  font-size: 2vw;
 }
 
 p {
