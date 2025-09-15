@@ -52,7 +52,7 @@ export default async function WorkDetails({
           />
         ) : null}
       </div>
-      <div className="">
+      <div className="p-4">
         <h1 className="text-4xl font-bold mb-8">{post.title}</h1>
         <p className="text-sm text-neutral-500 mb-4">
           Published: {new Date(post.publishedAt).toLocaleDateString()}
