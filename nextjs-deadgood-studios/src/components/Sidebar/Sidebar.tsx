@@ -8,13 +8,13 @@ export default function Sidebar() {
         <Image src="/logo.jpg" alt="logo" width={100} height={100} priority />
         <nav className="flex flex-col gap-4">
           <Link href="/work">
-            <h2 className="block text-5xl uppercase">Work</h2>
+            <h2 className="block text-4xl uppercase">Work</h2>
           </Link>
           <Link href="/about">
-            <h2 className="block text-5xl uppercase">About</h2>
+            <h2 className="block text-4xl uppercase">About</h2>
           </Link>
           <Link href="/dinkum">
-            <h2 className="block text-5xl uppercase">Dinkum</h2>
+            <h2 className="block text-4xl uppercase">Dinkum</h2>
           </Link>
         </nav>
         <h1 className="text-xl font-thin">
