@@ -1,3 +1,4 @@
+import Navbar from "@/components/Navbar/Navbar";
 import Sidebar from "@/components/Sidebar/Sidebar";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
@@ -28,9 +29,14 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <div className="flex">
-          <Sidebar />
-          <main className="flex-1 h-screen overflow-y-auto">{children}</main>
+        <div className="flex flex-col md:flex-row h-screen">
+          <div className="hidden md:block md:w-[28%] max-h-screen sticky top-0 overflow-y-auto">
+            <Sidebar />
+          </div>
+          <div className="block md:hidden fixed w-full top-0 z-50">
+            <Navbar />
+          </div>
+          <main className="flex-1 overflow-y-auto md:pt-0">{children}</main>
         </div>
       </body>
     </html>
