@@ -1,5 +1,4 @@
 import { client } from "@/sanity/client";
-import type { PageProps } from "@/types/page-props";
 import imageUrlBuilder from "@sanity/image-url";
 import { PortableText } from "next-sanity";
 import Image from "next/image";
@@ -25,7 +24,9 @@ const options = { next: { revalidate: 30 } };
 
 export default async function WorkDetails({
   params,
-}: PageProps<{ slug: string }>) {
+}: {
+  params: { slug: string };
+}) {
   const { slug } = params;
   const post = await client.fetch(POST_QUERY, { slug }, options);
 
