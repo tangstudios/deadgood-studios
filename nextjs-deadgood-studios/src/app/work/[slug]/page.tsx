@@ -1,9 +1,10 @@
 import { client } from "@/sanity/client";
+import type { PageProps } from "@/types/page-props";
 import imageUrlBuilder from "@sanity/image-url";
 import { PortableText } from "next-sanity";
 import Image from "next/image";
 
-const POST_QUERY = /* groq */ `
+const POST_QUERY = `
 *[_type == "projects" && slug.current == $slug][0]{
   _id, title, publishedAt, body,
   "media": coalesce(
@@ -24,9 +25,7 @@ const options = { next: { revalidate: 30 } };
 
 export default async function WorkDetails({
   params,
-}: {
-  params: { slug: string };
-}) {
+}: PageProps<{ slug: string }>) {
   const { slug } = params;
   const post = await client.fetch(POST_QUERY, { slug }, options);
 
@@ -59,6 +58,7 @@ export default async function WorkDetails({
             autoPlay
             loop
             playsInline
+            muted
           />
         ) : heroImageUrl ? (
           <Image
@@ -68,7 +68,7 @@ export default async function WorkDetails({
             className="object-cover"
             priority
           />
-        ) : null}{" "}
+        ) : null}
       </div>
 
       <h1 className="text-4xl font-bold mb-8">{post?.title}</h1>
