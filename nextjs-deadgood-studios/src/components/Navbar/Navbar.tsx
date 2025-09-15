@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function Navbar() {
   return (
-    <aside className="max-h-screen sticky top-0 overflow-y-auto scrollbar-hide p-4">
+    <aside className="max-h-screen sticky top-0 p-4">
       <div className="flex flex-row justify-between items-center gap-12">
         <Link href="/">
           <Image
