@@ -36,7 +36,7 @@ export default function RootLayout({
           <div className="block md:hidden fixed w-full top-0 z-50">
             <Navbar />
           </div>
-          <main className="flex-1 md:pt-0 overflow-scroll">{children}</main>
+          <main className="flex-1 md:pt-0 md:overflow-auto">{children}</main>
         </div>
       </body>
     </html>
