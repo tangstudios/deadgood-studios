@@ -3,24 +3,17 @@ import imageUrlBuilder from "@sanity/image-url";
 import { PortableText } from "next-sanity";
 import Image from "next/image";
 
-const POST_QUERY = `
+const POST_QUERY = /* groq */ `
 *[_type == "projects" && slug.current == $slug][0]{
-  _id,
-  title,
-  publishedAt,
-  body,
-  // Prefer featureMedia (image OR file), fallback to legacy fields
+  _id, title, publishedAt, body,
   "media": coalesce(
     featureMedia[0]{
       "type": select(_type == "image" => "image", _type == "file" => "video"),
       "url": asset->url,
-      // keep image ref to allow builder transforms
       "assetRef": select(_type == "image" => asset->_ref, null),
       "mimeType": asset->mimeType
     },
-    // legacy: first video file
     {"type":"video","url": video[0].asset->url, "mimeType": video[0].asset->mimeType},
-    // legacy: image
     {"type":"image","url": image.asset->url, "assetRef": image.asset->_ref, "mimeType": image.asset->mimeType}
   )
 }
@@ -34,7 +27,15 @@ export default async function WorkDetails({
 }: {
   params: { slug: string };
 }) {
-  const post = await client.fetch(POST_QUERY, { slug: params.slug }, options);
+  const { slug } = params;
+  const post = await client.fetch(POST_QUERY, { slug }, options);
+
+  const published = post?.publishedAt
+    ? new Intl.DateTimeFormat("en-GB", {
+        dateStyle: "medium",
+        timeZone: "UTC",
+      }).format(new Date(post.publishedAt))
+    : null;
 
   const heroImageUrl =
     post?.media?.type === "image"
@@ -57,7 +58,6 @@ export default async function WorkDetails({
             className="absolute inset-0 w-full h-full object-cover"
             autoPlay
             loop
-            // muted
             playsInline
           />
         ) : heroImageUrl ? (
@@ -68,15 +68,13 @@ export default async function WorkDetails({
             className="object-cover"
             priority
           />
-        ) : null}
+        ) : null}{" "}
       </div>
 
       <h1 className="text-4xl font-bold mb-8">{post?.title}</h1>
 
       <div>
-        {post?.publishedAt && (
-          <p>Published: {new Date(post.publishedAt).toLocaleDateString()}</p>
-        )}
+        {published && <p>Published: {published}</p>}
         {Array.isArray(post?.body) && <PortableText value={post.body} />}
       </div>
     </div>
