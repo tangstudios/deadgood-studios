@@ -1,16 +1,19 @@
 import { client } from "@/sanity/client";
-import imageUrlBuilder from "@sanity/image-url";
-import type { SanityImageSource } from "@sanity/image-url/lib/types/types";
 import { PortableText, type SanityDocument } from "next-sanity";
 import Image from "next/image";
 
-const POST_QUERY = `*[_type == "projects" && slug.current == $slug][0]`;
-
-const { projectId, dataset } = client.config();
-const urlFor = (source: SanityImageSource) =>
-  projectId && dataset
-    ? imageUrlBuilder({ projectId, dataset }).image(source)
-    : null;
+const POST_QUERY = `
+  *[_type == "projects" && slug.current == $slug][0]{
+    _id,
+    title,
+    publishedAt,
+    body,
+    featureMedia[0]{
+      _type,
+      asset->{url}
+    }
+  }
+`;
 
 const options = { next: { revalidate: 30 } };
 
@@ -24,27 +27,39 @@ export default async function WorkDetails({
     await params,
     options
   );
-  const postImageUrl = post.image
-    ? urlFor(post.image)?.width(550).height(310).url()
-    : null;
+
+  const media = post.featureMedia;
+  const mediaUrl = media?.asset?.url ?? null;
 
   return (
-    <div className="">
-      <div className="relative w-full h-[80vh]">
-        {postImageUrl && (
+    <div>
+      {/* Header Media Section */}
+      <div className="relative w-full h-[80vh] bg-black">
+        {media?._type === "image" && mediaUrl ? (
           <Image
-            src={postImageUrl}
+            src={mediaUrl}
             alt={post.title}
             fill
-            style={{ objectFit: "cover" }}
-            className="z-0"
+            className="object-cover z-0"
           />
-        )}
+        ) : media?._type === "file" && mediaUrl ? (
+          <video
+            src={mediaUrl}
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="absolute inset-0 w-full h-full object-cover z-0"
+          />
+        ) : null}
       </div>
 
-      <h1 className="text-4xl font-bold mb-8">{post.title}</h1>
-      <div>
-        <p>Published: {new Date(post.publishedAt).toLocaleDateString()}</p>
+      {/* Post Content */}
+      <div className="max-w-4xl mx-auto px-6 py-10">
+        <h1 className="text-4xl font-bold mb-8">{post.title}</h1>
+        <p className="text-sm text-neutral-500 mb-4">
+          Published: {new Date(post.publishedAt).toLocaleDateString()}
+        </p>
         {Array.isArray(post.body) && <PortableText value={post.body} />}
       </div>
     </div>
