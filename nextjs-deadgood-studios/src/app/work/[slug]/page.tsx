@@ -33,7 +33,6 @@ export default async function WorkDetails({
 
   return (
     <div>
-      {/* Header Media Section */}
       <div className="relative w-full h-[80vh] bg-black">
         {media?._type === "image" && mediaUrl ? (
           <Image
@@ -47,15 +46,13 @@ export default async function WorkDetails({
             src={mediaUrl}
             autoPlay
             loop
-            muted
+            // muted
             playsInline
             className="absolute inset-0 w-full h-full object-cover z-0"
           />
         ) : null}
       </div>
-
-      {/* Post Content */}
-      <div className="max-w-4xl mx-auto px-6 py-10">
+      <div className="">
         <h1 className="text-4xl font-bold mb-8">{post.title}</h1>
         <p className="text-sm text-neutral-500 mb-4">
           Published: {new Date(post.publishedAt).toLocaleDateString()}
