@@ -29,10 +29,15 @@ export const projectType = defineType({
       validation: (rule) => rule.required(),
     }),
     defineField({
-      name: 'image',
-      title: 'Feature Image',
-      type: 'image',
-      description: 'Select the image you’d like to feature on your homepage.',
+      name: 'featureMedia',
+      title: 'Feature Media',
+      type: 'array',
+      of: [
+        {type: 'image', options: {hotspot: true}},
+        {type: 'file', title: 'Video (MP4)', options: {accept: 'video/mp4'}},
+      ],
+      validation: (r) => r.required().min(1).max(1),
+      description: 'Choose either a single image or a single MP4 video.',
     }),
     defineField({
       name: 'gallery',
