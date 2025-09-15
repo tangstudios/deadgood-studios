@@ -33,7 +33,7 @@ export default async function WorkDetails({
 
   return (
     <div>
-      <div className="relative w-full h-[80vh] bg-black">
+      <div className="relative w-full aspect-video bg-black">
         {media?._type === "image" && mediaUrl ? (
           <Image
             src={mediaUrl}
