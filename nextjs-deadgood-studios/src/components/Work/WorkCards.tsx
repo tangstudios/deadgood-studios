@@ -1,6 +1,7 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
+import { useState } from "react";
 
 type Project = {
   _id: string;
@@ -29,17 +30,13 @@ const WorkCards: React.FC<WorkProps> = ({ projects }) => {
                 className="object-cover object-center"
               />
             ) : project.featureMedia?._type === "file" ? (
-              <video
+              <VideoCard
                 src={project.featureMedia.assetUrl}
-                className="w-full h-full object-cover"
-                autoPlay
-                loop
-                muted
-                playsInline
+                title={project.title}
               />
             ) : null}
-            <div className="absolute bottom-4 left-4 text-white">
-              <h3 className="capitalize text-lg font-semibold">
+            <div className="absolute bottom-2 left-2 text-white">
+              <h3 className="normal-case text-md font-regular">
                 {project.title}
               </h3>
             </div>
@@ -51,3 +48,21 @@ const WorkCards: React.FC<WorkProps> = ({ projects }) => {
 };
 
 export default WorkCards;
+
+function VideoCard({ src, title }: { src: string; title: string }) {
+  const [muted, setMuted] = useState(true);
+
+  return (
+    <video
+      src={src}
+      className="absolute inset-0 w-full h-full object-cover"
+      autoPlay
+      loop
+      muted={muted}
+      playsInline
+      onMouseEnter={() => setMuted(false)}
+      onMouseLeave={() => setMuted(true)}
+      aria-label={title}
+    />
+  );
+}
