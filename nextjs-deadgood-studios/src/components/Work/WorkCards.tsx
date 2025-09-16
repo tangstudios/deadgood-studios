@@ -17,16 +17,19 @@ const WorkCards: React.FC<WorkProps> = ({ projects }) => {
   if (!projects) return null;
 
   return (
-    <div className="grid grid-cols-1 xl:grid-cols-2">
+    <div className="grid grid-cols-1 xl:grid-cols-2 [border:none] [margin:0] overflow-hidden gap-4 p-4">
       {projects.map((project) => (
-        <div key={project._id} className="relative h-[50vh]">
+        <div
+          key={project._id}
+          className="relative h-[50vh] group overflow-hidden rounded-xl"
+        >
           <Link href={`/work/${project.slug.current}`}>
             {project.featureMedia?._type === "image" ? (
               <Image
                 src={project.featureMedia.assetUrl}
                 alt={project.title}
                 fill
-                className="object-cover object-center"
+                className="object-cover object-center transition-transform duration-200 ease-in-out group-hover:scale-105 group-hover:blur-[1px] rounded-xl"
               />
             ) : project.featureMedia?._type === "file" ? (
               <VideoCard
@@ -34,7 +37,7 @@ const WorkCards: React.FC<WorkProps> = ({ projects }) => {
                 title={project.title}
               />
             ) : null}
-            <div className="absolute bottom-2 left-2 text-white">
+            <div className="absolute bottom-2 left-2 text-white z-10">
               <h3 className="normal-case text-md font-regular">
                 {project.title}
               </h3>
@@ -49,19 +52,14 @@ const WorkCards: React.FC<WorkProps> = ({ projects }) => {
 export default WorkCards;
 
 function VideoCard({ src, title }: { src: string; title: string }) {
-  // const [muted, setMuted] = useState(true);
-
   return (
     <video
       src={src}
-      className="absolute inset-0 w-full h-full object-cover"
+      className="absolute inset-0 w-full h-full object-cover duration-200 ease-in-out group-hover:scale-105 group-hover:blur-[1px] rounded-xl"
       autoPlay
       loop
       muted
-      // muted={muted}
       playsInline
-      // onMouseEnter={() => setMuted(false)}
-      // onMouseLeave={() => setMuted(true)}
       aria-label={title}
     />
   );

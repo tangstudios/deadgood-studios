@@ -3,9 +3,18 @@ import Link from "next/link";
 
 export default function Sidebar() {
   return (
-    <aside className="max-h-screen sticky top-0 overflow-y-auto scrollbar-hide p-8">
+    <aside className="max-h-screen sticky top-0 overflow-y-auto scrollbar-hide p-4">
       <div className="flex flex-col gap-12">
-        <Image src="/logo.jpg" alt="logo" width={100} height={100} priority />
+        <Link href="/">
+          <Image
+            src="/logo.jpg"
+            alt="logo"
+            width={100}
+            height={100}
+            priority
+            className="cursor-pointer"
+          />
+        </Link>
         <nav className="flex flex-col gap-4">
           <Link href="/work">
             <h2 className="block text-4xl uppercase">Work</h2>

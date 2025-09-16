@@ -3,8 +3,8 @@ import Link from "next/link";
 
 export default function Navbar() {
   return (
-    <aside className="max-h-screen sticky top-0 p-4">
-      <div className="flex flex-row justify-between items-center gap-12">
+    <aside className="max-h-screen sticky top-0 p-8">
+      <div className="flex flex-row justify-between items-center">
         <Link href="/">
           <Image
             src="/logo.jpg"
@@ -15,7 +15,7 @@ export default function Navbar() {
             className="cursor-pointer"
           />
         </Link>
-        <h1 className="text-xl">Menu</h1>
+        <h1 className="text-lg">Menu</h1>
       </div>
     </aside>
   );

@@ -32,27 +32,30 @@ export default async function WorkDetails({
   const mediaUrl = media?.asset?.url ?? null;
 
   return (
-    <div>
+    <div className="p-4 flex flex-col gap-4">
       <div className="relative w-full aspect-video bg-black">
         {media?._type === "image" && mediaUrl ? (
           <Image
             src={mediaUrl}
             alt={post.title}
             fill
-            className="object-cover z-0"
+            className="object-cover z-0 round-xl"
           />
         ) : media?._type === "file" && mediaUrl ? (
           <video
+            className="absolute inset-0 w-full h-full object-cover z-0 rounded-xl"
             src={mediaUrl}
             autoPlay
             loop
-            // muted
+            muted
+            controls
             playsInline
-            className="absolute inset-0 w-full h-full object-cover z-0"
+            controlsList="nodownload nofullscreen noremoteplayback"
+            disablePictureInPicture
           />
         ) : null}
       </div>
-      <div className="p-4">
+      <div className="">
         <h1 className="text-4xl font-bold mb-8">{post.title}</h1>
         <p className="text-sm text-neutral-500 mb-4">
           Published: {new Date(post.publishedAt).toLocaleDateString()}
