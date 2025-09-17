@@ -11,6 +11,11 @@ export const projectType = defineType({
       validation: (rule) => rule.required(),
     }),
     defineField({
+      name: 'client',
+      type: 'string',
+      validation: (rule) => rule.required(),
+    }),
+    defineField({
       name: 'tags',
       type: 'array',
       of: [{type: 'reference', to: [{type: 'tags'}]}],
