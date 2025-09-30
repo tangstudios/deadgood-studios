@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { client } from "@/sanity/client";
 import { PortableText, type SanityDocument } from "next-sanity";
 import Image from "next/image";
