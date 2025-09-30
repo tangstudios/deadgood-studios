@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function Navbar() {
   return (
-    <aside className="max-h-screen sticky top-0 p-8">
+    <aside className="max-h-screen sticky top-0 p-4">
       <div className="flex flex-row justify-between items-center">
         <Link href="/">
           <Image
