@@ -1,6 +1,6 @@
 import {defineField, defineType} from 'sanity'
 
-export const tagType = defineType({
+export const teamMemberType = defineType({
   name: 'teamMembers',
   title: 'Team Members',
   type: 'document',
