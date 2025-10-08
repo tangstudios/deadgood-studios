@@ -42,7 +42,7 @@ export default async function WorkDetails({
   const galleryImages = post.gallery ?? [];
 
   return (
-    <div className="flex flex-col gap-10">
+    <div className="flex flex-col gap-10 pt-16 px-8">
       <div className="relative w-full aspect-video bg-black">
         {media?._type === "image" && mediaUrl ? (
           <Image
