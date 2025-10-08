@@ -109,7 +109,7 @@ export default async function DinkumPage() {
           <h2 className="text-[clamp(2rem,3vw,5rem)] leading-none">
             EP{String(latest.episode).padStart(2, "0")}
           </h2>
-          <h1 className="text-xl font-medium">{latest.title}</h1>
+          <h1 className="text-xl font-medium pt-4">{latest.title}</h1>
           <h1 className="text-xl font-medium pt-3 pb-5">
             {new Intl.DateTimeFormat("en-GB", { dateStyle: "medium" }).format(
               new Date(latest.publishedAt)
