@@ -2,8 +2,8 @@ import Link from "next/link";
 
 export default function Sidebar() {
   return (
-    <aside className=" sticky top-0 h-screen">
-      <div className="flex h-full flex-col p-16 pr-0">
+    <aside className=" sticky top-0 h-screen p-8">
+      <div className="flex h-full flex-col">
         <div className="flex-1 overflow-y-auto scrollbar-hide">
           <div className="flex flex-col gap-8">
             <nav className="flex flex-col whitespace-pre-line leading-tight">

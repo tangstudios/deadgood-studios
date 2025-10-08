@@ -42,7 +42,7 @@ export default async function WorkDetails({
   const galleryImages = post.gallery ?? [];
 
   return (
-    <div className="flex flex-col gap-10 pt-16 px-8">
+    <div className="flex flex-col gap-10 p-8">
       <div className="relative w-full aspect-video bg-black">
         {media?._type === "image" && mediaUrl ? (
           <Image
@@ -66,9 +66,7 @@ export default async function WorkDetails({
         ) : null}
       </div>
       <div className="">
-        <h2 className="text-4xl text-neutral-200 leading-none ">
-          {post.title}
-        </h2>
+        <h2 className="text-4xl text-neutral-200 uppercase">{post.title}</h2>
         <h1 className="text-[18px] text-neutral-200 mb-4 uppercase">
           {new Date(post.publishedAt).getFullYear()} | Client: {post.client} |
           {"  "}

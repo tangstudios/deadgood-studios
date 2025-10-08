@@ -33,7 +33,7 @@ export default async function DinkumPage() {
   }
 
   return (
-    <div className="p-16 whitespace-pre-line leading-tight">
+    <div className="p-8">
       <h1 className="text-3xl font-semibold">Dinkum logo placeholder</h1>
       <div className="flex flex-col lg:flex-row gap-8 pt-16 pb-10">
         <div className="flex-1">
@@ -119,15 +119,6 @@ export default async function DinkumPage() {
           {latest.description && (
             <p className=" text-neutral-300">{latest.description}</p>
           )}
-
-          {/* <div className="pt-6">
-            <a
-              href="#"
-              className="text-sm uppercase tracking-wide text-neutral-400 hover:text-white transition"
-            >
-              Listen Now →
-            </a>
-          </div> */}
         </article>
       </section>
 
