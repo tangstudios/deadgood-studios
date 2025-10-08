@@ -1,8 +1,8 @@
 import {defineField, defineType} from 'sanity'
 
 export const dinkumType = defineType({
-  name: 'teamMembers',
-  title: 'Team Members',
+  name: 'dinkum',
+  title: 'Dinkum',
   type: 'document',
   fields: [
     defineField({
