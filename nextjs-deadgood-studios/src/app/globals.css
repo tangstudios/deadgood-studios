@@ -20,17 +20,17 @@
 }
 
 @font-face {
-  font-family: "Nyght Serif Regular";
-  src: url("../../public/fonts/NyghtSerif-Regular.ttf") format("truetype");
+  font-family: "Libertinus Mono Regular";
+  src: url("../../public/fonts/LibertinusMono-Regular.otf") format("truetype");
 }
 
 @font-face {
-  font-family: "Hind Bold";
-  src: url("../../public/fonts/Hind-Bold.ttf") format("truetype");
+  font-family: "Satoshi Black";
+  src: url("../../public/fonts/satoshi/Satoshi-Black.ttf") format("truetype");
 }
 @font-face {
-  font-family: "Hind Regular";
-  src: url("../../public/fonts/Hind-Regular.ttf") format("truetype");
+  font-family: "Satoshi Regular";
+  src: url("../../public/fonts/satoshi/Satoshi-Regular.ttf") format("truetype");
 }
 
 body {
@@ -41,15 +41,15 @@ body {
 }
 
 h1 {
-  font-family: "Nyght Serif regular", serif;
+  font-family: "Libertinus Mono Regular";
   font-size: 48px;
 }
 
 h2 {
-  font-family: "Hind Bold", sans-serif;
+  font-family: "Satoshi Black", sans-serif;
   font-size: 4vw;
 }
 
 p {
-  font-family: "Hind Regular", sans-serif;
+  font-family: "Satoshi Regular", sans-serif;
 }
