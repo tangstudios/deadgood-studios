@@ -1,3 +1,4 @@
+import FixedLogo from "@/components/FixedLogo";
 import Navbar from "@/components/Navbar/Navbar";
 import Sidebar from "@/components/Sidebar/Sidebar";
 import type { Metadata } from "next";
@@ -29,8 +30,9 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        <FixedLogo />
         <div className="flex flex-col md:flex-row h-screen">
-          <div className="hidden md:block md:w-[25%] max-h-screen sticky top-0 overflow-y-auto">
+          <div className="hidden md:block md:w-[20%] max-h-screen sticky top-0 overflow-y-auto">
             <Sidebar />
           </div>
           <div className="block md:hidden fixed w-full top-0 z-50">
