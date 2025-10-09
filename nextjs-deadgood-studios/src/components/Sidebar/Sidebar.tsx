@@ -3,10 +3,13 @@ import { client } from "@/sanity/client";
 import { useTagStore } from "@/store/useTagStore";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname, useRouter } from "next/navigation";
 import { useEffect } from "react";
 
 export default function Sidebar() {
   const { tags, activeTag, setTags, setActiveTag } = useTagStore();
+  const router = useRouter();
+  const pathname = usePathname();
 
   useEffect(() => {
     async function fetchTags() {
@@ -17,6 +20,18 @@ export default function Sidebar() {
     }
     fetchTags();
   }, [setTags]);
+
+  useEffect(() => {
+    if (pathname !== "/") {
+      setActiveTag(null);
+    }
+  }, [pathname, setActiveTag]);
+
+  const handleTagClick = (tagId: string) => {
+    setActiveTag(tagId === activeTag ? null : tagId);
+    router.push("/");
+  };
+
   return (
     <aside
       className="isolate z-0 top-0 h-screen p-8
@@ -24,7 +39,6 @@ export default function Sidebar() {
         before:-z-10
       "
     >
-      {/* Background image from /public */}
       <Image
         src="/sidebar-gradient.png"
         alt=""
@@ -46,14 +60,14 @@ export default function Sidebar() {
                   Work
                 </h2>
               </Link>
+
+              {/* Tag buttons */}
               <div className="flex flex-wrap gap-2 mt-2">
                 {tags.map((tag) => (
                   <button
                     key={tag._id}
-                    onClick={() =>
-                      setActiveTag(activeTag === tag._id ? null : tag._id)
-                    }
-                    className={`text-sm uppercase px-2 text-left transition-colors duration-300  ${
+                    onClick={() => handleTagClick(tag._id)}
+                    className={`text-sm uppercase px-2 text-left transition-colors duration-300 ${
                       activeTag === tag._id
                         ? "bg-white text-neutral-800"
                         : "text-neutral-500 hover:bg-white hover:text-neutral-800"
