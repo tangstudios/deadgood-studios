@@ -29,7 +29,6 @@ export default function WorkPage() {
         tags[]->{_id, name},
         featureMedia[0]{_type, "assetUrl": asset->url}
       }`);
-      console.log(data);
       setProjects(data);
     }
     fetchProjects();

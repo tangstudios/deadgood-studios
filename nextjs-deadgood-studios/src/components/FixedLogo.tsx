@@ -7,7 +7,7 @@ export default function FixedLogo() {
   return (
     <Link
       href="/"
-      className="hidden md:block fixed p-8 right-0 z-50 hover:opacity-80 transition-opacity duration-300"
+      className="hidden lg:block fixed p-8 right-0 z-50 hover:opacity-80 transition-opacity duration-300"
     >
       <Image
         src="/logo.jpg"
