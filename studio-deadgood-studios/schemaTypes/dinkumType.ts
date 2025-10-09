@@ -39,5 +39,27 @@ export const dinkumType = defineType({
       description: 'Short podcast episode summary',
       validation: (rule) => rule.required(),
     }),
+    // 🎧 External platform links
+    defineField({
+      name: 'youtubeLink',
+      title: 'YouTube Link',
+      type: 'url',
+      description: 'Full URL to the YouTube episode or playlist',
+      validation: (rule) => rule.uri({scheme: ['http', 'https']}),
+    }),
+    defineField({
+      name: 'spotifyLink',
+      title: 'Spotify Link',
+      type: 'url',
+      description: 'Full URL to the Spotify episode or show',
+      validation: (rule) => rule.uri({scheme: ['http', 'https']}),
+    }),
+    defineField({
+      name: 'applePodcastLink',
+      title: 'Apple Podcast Link',
+      type: 'url',
+      description: 'Full URL to the Apple Podcasts episode or show',
+      validation: (rule) => rule.uri({scheme: ['http', 'https']}),
+    }),
   ],
 })
