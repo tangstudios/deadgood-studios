@@ -33,6 +33,11 @@
   src: url("../../public/fonts/satoshi/Satoshi-Regular.ttf") format("truetype");
 }
 
+@font-face {
+  font-family: "SuisseIntl Regular";
+  src: url("../../public/fonts/SuisseIntl-Regular.ttf") format("truetype");
+}
+
 body {
   color: var(--foreground);
   background: var(--background);
@@ -41,12 +46,12 @@ body {
 }
 
 h1 {
-  font-family: "Libertinus Mono Regular";
+  font-family: "SuisseIntl Regular";
   font-size: 48px;
 }
 
 h2 {
-  font-family: "Satoshi Black", sans-serif;
+  font-family: "SuisseIntl Regular", sans-serif;
   font-size: 4vw;
 }
 

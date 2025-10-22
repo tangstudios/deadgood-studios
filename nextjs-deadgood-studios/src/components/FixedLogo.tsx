@@ -14,8 +14,8 @@ export default function FixedLogo() {
         alt="Dead Good Studios Logo"
         width={0} // let CSS control actual size
         height={0}
-        sizes="(max-width: 768px) 80px, (max-width: 1024px) 100px, 150px"
-        className="cursor-pointer w-[clamp(60px,10vw,150px)] h-auto"
+        sizes="(max-width: 768px) 50px, (max-width: 1024px) 80px, 100px"
+        className="cursor-pointer w-[clamp(50px,10vw,100px)] h-auto"
         priority
       />
     </Link>

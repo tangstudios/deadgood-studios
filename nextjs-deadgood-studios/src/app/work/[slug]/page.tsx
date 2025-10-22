@@ -42,7 +42,7 @@ export default async function WorkDetails({
   const galleryImages = post.gallery ?? [];
 
   return (
-    <div className="flex flex-col gap-10 p-8">
+    <div className="flex flex-col gap-10 p">
       <div className="relative w-full aspect-video bg-black">
         {media?._type === "image" && mediaUrl ? (
           <Image
@@ -66,8 +66,8 @@ export default async function WorkDetails({
         ) : null}
       </div>
       <div className="">
-        <h2 className="text-4xl text-neutral-200 uppercase">{post.title}</h2>
-        <h1 className="text-[18px] text-neutral-200 mb-4 uppercase">
+        <h2 className="text-4xl text-neutral-200 capitalize">{post.title}</h2>
+        <h1 className="text-[18px] text-neutral-200 mb-4 capitalize">
           {new Date(post.publishedAt).getFullYear()} | Client: {post.client} |
           {"  "}
           {post.tags?.map((tag: any) => tag.name).join(", ")}
@@ -75,7 +75,7 @@ export default async function WorkDetails({
         {Array.isArray(post.body) && <PortableText value={post.body} />}
       </div>
       {galleryImages.length > 0 && (
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-2">
           {galleryImages.map((image, index) => (
             <div
               key={`gallery-${index}`}
